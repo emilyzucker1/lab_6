@@ -63,6 +63,13 @@ def encode():
     print('\nEncoded password saved!\n')
     return encoded_password
 
+def decode(encoded_password):
+    decoded_password = ""
+    for item in encoded_password:
+        digit = int(item)
+        digit -= 3
+        decoded_password += f"{digit}"
+    return decoded_password
 
 def main():
 
@@ -80,11 +87,8 @@ def main():
 
         elif user_choice == 2:
 
-            pass
-            # FIXME: decoder
-            # note: the encode() method will not regulate password with the number 7 or above... this will lead
-            # to digits of value 7 or above to be two digit numbers in the encoded password... assume that
-            # the password will only contain digits 1-6.
+            print(f"The encoded password is {password}, and the original password is {decode(password)}")
+            user_choice = menu()
 
         elif user_choice == 3:
 
